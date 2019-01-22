@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Lista Ras:</h2>
+    <table class="table">
+        <thead>
+        <tr class="d-flex text-color-darker">
+            <th scope="col" class="col-1">ID</th>
+            <th scope="col" class="col-5">NAZWA</th>
+            <th scope="col" class="col-5">OPIS</th>
+            <th scope="col" class="col-1">AKCJE</th>
+        </tr>
+        </thead>
+        <tbody class="text-color-lighter">
+            {% for racelist in all_race %}
+            <tr class="d-flex">
+                <th scope="row" class="col-1">{{ racelist.id }}</th>
+                <td class="col-5">
+                    {{ racelist.name }}
+                </td>
+                <td class="col-5">{{ racelist.description }}</td>
+                  <td class="col-1"><a href="" class="btn btn-info rounded-0 text-light">Szczegóły</a></td>
+            </tr>
+            {%  endfor %}
+
+        </tbody>
+    </table>
+
+    <div class="pagination">
+    <span class="step-links">
+        {% if all_race.has_previous %}
+        <a href="?page={{ all_race.previous_page_number }}">< poprzednia </a>
+        {% endif %}
+        <span class="current">
+            {% for page in all_race.paginator.page_range %}
+                <a href="?page={{ page}}">| {{ page }} </a>
+            {%  endfor %}
+        </span>
+
+        {% if all_race.has_next %}
+        <a href="?page={{ all_recipes.next_page_number }}">| następna ></a>
+
+        {% endif %}
+    </span>
+    </div>
+{% endblock content %}
