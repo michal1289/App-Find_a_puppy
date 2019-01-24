@@ -14,9 +14,10 @@
 
     {% for race in races %}
         <p>{{ race.name }}</p>
+    {% empty %}
+        <p>Wybierz wszystkie pola</p>
     {% endfor %}
 
 </table>
 </form>
 {% endblock %}
-

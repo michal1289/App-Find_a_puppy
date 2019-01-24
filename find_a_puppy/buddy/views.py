@@ -1,5 +1,3 @@
-import datetime
-
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.views import View
@@ -28,10 +26,11 @@ def RaceDetailsView(request, id):
     race = Race.objects.all().filter(id=id)
     for value in race:
         race_details.append({"name": value.name, 'description': value.description,
-                             'size': value.size, 'care': value.care, 'activity': value.activity,
-                             'children': value.children, 'character': value.character,
-                             'live_in_city': value.live_in_city, 'salary': value.salary,
-                             'training': value.training, 'save': value.save})
+                             'size': value.get_size_display, 'care': value.get_care_display,
+                             'activity': value.get_activity_display, 'children': value.get_children_display,
+                             'character': value.get_character_display, 'live_in_city': value.get_live_in_city_display,
+                             'salary': value.get_salary_display, 'training': value.get_training_display,
+                             'save': value.get_guard_display})
         return render(request, "racedetail.html", {'race_details': race_details})
 
 
@@ -47,12 +46,10 @@ class RaceFilterView(View):
             (character=form["character"].value()).filter(live_in_city=form["live_in_city"].value()).filter\
             (salary=form["salary"].value()).filter(training=form["training"].value()).filter\
             (guard=form["guard"].value())
-        # races2 = races.filter(care=form["care"].value())
         # if races:
-        #     size =
-
-
 
         return render(request, 'find_puppy.html', {"form": form, "races": races})
 
 
+def FarmList(request):
+    pass

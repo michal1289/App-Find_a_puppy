@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Szczegółowy opis</h2>
+<div class="row border-bottom border-3">
+    <div class="col"><h2 class="text-uppercase" >Szczegółowy opis:</h2></div>
+    <div class="col d-flex justify-content-end mb-2"><a href="{% url 'rasy' %}" class="btn btn-info rounded-0 text-light">Powrót</a></div>
+</div>
 <br>
     {% for value in race_details %}
         <table class="table borderless">
@@ -58,21 +61,22 @@
                         {{ value.save }}
                     </td>
                 </tr>
+                <tr class="d-flex">
+                    <th scope="row" class="col-2">Życie w mieście</th>
+                    <td class="col-7">
+                        {{ value.live_in_city }}
+                    </td>
+                </tr>
             </tbody>
         </table>
 
         <div class="row d-flex">
             <div class="col-5 border-bottom border-3"><h3 class="text-uppercase">Opis rasy</h3></div>
-            <div class="col-2"></div>
-            <div class="col-5 border-bottom border-3"><h3 class="text-uppercase">Życie w mieście</h3></div>
         </div>
         <div class="row d-flex">
-            <div class="col-5 p-4">
+            <div class="p-4">
                 <p>{{ value.description }}</p>
             </div>
-            <div class="col-2"></div>
-            <ul class="col-5 p-4 list-unstyled">
-                {{ value.live_in_city }}
         </div>
         {% endfor %}
 

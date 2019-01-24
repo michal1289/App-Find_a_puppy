@@ -21,8 +21,8 @@ from buddy.views import IndexView, RaceListView, RaceDetailsView, RaceFilterView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name="index"),
-    path('listaras/', RaceListView, name="rasy"),
-    path('rasa/<id>/', RaceDetailsView, name="race_detail"),
+    path('rasy/', RaceListView, name="rasy"),
+    path('rasy/<id>/', RaceDetailsView, name="race_detail"),
     path('dopasuj_szczeniaka/', RaceFilterView.as_view(), name="dobierz_szczeniaka")
 
 ]

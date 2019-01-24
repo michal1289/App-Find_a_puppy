@@ -19,7 +19,8 @@
                     {{ racelist.name }}
                 </td>
                 <td class="col-5">{{ racelist.description }}</td>
-                  <td class="col-1"><a href="#" class="btn btn-info rounded-0 text-light">Szczegóły</a></td>
+                  <td class="col-1"><a href="{% url 'race_detail' racelist.id %}" class="btn btn-info rounded-0 text-light">
+                      Szczegóły</a></td>
             </tr>
             {%  endfor %}
 
