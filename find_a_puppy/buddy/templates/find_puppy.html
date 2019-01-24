@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post">
+{% csrf_token %}
+<h2>Dopasuj odpowiedniego psa dla siebie:</h2>
+    <table>{{ form }}</table>
+    <button type="submit">Wyślij</button>
+
+<br>
+<br>
+<h2>Lista dobranych ras psów dla Ciebie:</h2>
+<table class="table">
+
+    {% for race in races %}
+        <p>{{ race.name }}</p>
+    {% endfor %}
+
+</table>
+</form>
+{% endblock %}
+

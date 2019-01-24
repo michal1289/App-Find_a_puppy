@@ -35,7 +35,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Znajdź Szczeniaka</a>
+              <a class="nav-link" href="{% url 'dobierz_szczeniaka' %}">Dopasuj Szczeniaka</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'rasy' %}">Lista Ras</a>
@@ -51,9 +51,12 @@
       </div>
     </nav>
 
-    <header>
+
+    <br>
+    <br>
+    <br>
     {% block content %}{% endblock content %}
-    </header>
+
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">

@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from buddy.views import IndexView, RaceListView
+from buddy.views import IndexView, RaceListView, RaceDetailsView, RaceFilterView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name="index"),
     path('listaras/', RaceListView, name="rasy"),
-    # path('rasa/<id>/', RaceDetailsView, name="race_detail"),
+    path('rasa/<id>/', RaceDetailsView, name="race_detail"),
+    path('dopasuj_szczeniaka/', RaceFilterView.as_view(), name="dobierz_szczeniaka")
 
 ]

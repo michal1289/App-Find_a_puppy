@@ -1,5 +1,79 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h2>Szczegółowy opis</h2>
+<br>
+    {% for value in race_details %}
+        <table class="table borderless">
+            <tbody>
+                <tr class="d-flex">
+                    <th scope="row" class="col-2">Nazwa rasy</th>
+                    <td class="col-7">
+                        {{ value.name }}
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <th scope="row" class="col-2">Wielkość psa</th>
+                    <td class="col-7">{{ value.size }}</td>
+                </tr>
+                <tr class="d-flex">
+                    <th scope="row" class="col-2">Opieka nad psem</th>
+                    <td class="col-7">
+                        {{ value.care }}
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <th scope="row" class="col-2">Potrzebna aktywność</th>
+                    <td class="col-7">
+                        {{ value.activity }}
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <th scope="row" class="col-2">Pies a dzieci</th>
+                    <td class="col-7">
+                        {{ value.children }}
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <th scope="row" class="col-2">Charakter</th>
+                    <td class="col-7">
+                        {{ value.character }}
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <th scope="row" class="col-2">Koszty utrzymania</th>
+                    <td class="col-7">
+                        {{ value.salary }}
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <th scope="row" class="col-2">Wyszkolenie</th>
+                    <td class="col-7">
+                        {{ value.training }}
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <th scope="row" class="col-2">Czy nadaje się na stróża</th>
+                    <td class="col-7">
+                        {{ value.save }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row d-flex">
+            <div class="col-5 border-bottom border-3"><h3 class="text-uppercase">Opis rasy</h3></div>
+            <div class="col-2"></div>
+            <div class="col-5 border-bottom border-3"><h3 class="text-uppercase">Życie w mieście</h3></div>
+        </div>
+        <div class="row d-flex">
+            <div class="col-5 p-4">
+                <p>{{ value.description }}</p>
+            </div>
+            <div class="col-2"></div>
+            <ul class="col-5 p-4 list-unstyled">
+                {{ value.live_in_city }}
+        </div>
+        {% endfor %}
 
 {% endblock %}
