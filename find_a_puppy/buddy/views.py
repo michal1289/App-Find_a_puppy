@@ -13,7 +13,7 @@ class IndexView(View):
 
 
 def RaceListView(request):
-    b = Race.objects.all()
+    b = Race.objects.all().order_by('id')
     paginator = Paginator(b, 10)
     page = request.GET.get('page')
     a = paginator.get_page(page)
@@ -40,7 +40,7 @@ class RaceFilterView(View):
 
     def post(self, request):
         form = FilterForm(request.POST)
-        races = Race.objects.all()
+        races = Race.objects.all().order_by('id')
 
         race_size = form["size"].value()
         race_care = form["care"].value()
