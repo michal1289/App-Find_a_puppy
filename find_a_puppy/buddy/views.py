@@ -1,9 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
-from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView
-
 from buddy.forms import FilterForm
 from buddy.models import Race, Contact
 
@@ -16,7 +14,7 @@ class IndexView(View):
 
 def RaceListView(request):
     b = Race.objects.all()
-    paginator = Paginator(b, 5)
+    paginator = Paginator(b, 10)
     page = request.GET.get('page')
     a = paginator.get_page(page)
     return render(request, "racelist.html", {'all_race': a})

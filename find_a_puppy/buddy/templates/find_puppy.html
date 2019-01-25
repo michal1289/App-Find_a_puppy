@@ -11,12 +11,29 @@
 <br>
 <h2>Lista dobranych ras psów dla Ciebie:</h2>
 <table class="table">
-
-    {% for race in races %}
-        <p>{{ race.name }}</p>
-    {% empty %}
-        <p>Brak odpowiedniego psa w bazie</p>
-    {% endfor %}
+    <thead>
+        <tr class="d-flex text-color-darker">
+            <th scope="col" class="col-1">ID</th>
+            <th scope="col" class="col-5">NAZWA</th>
+            <th scope="col" class="col-5">OPIS</th>
+            <th scope="col" class="col-1">AKCJE</th>
+        </tr>
+    </thead>
+    <tbody class="text-color-lighter">
+        {% for race in races %}
+        <tr class="d-flex">
+            <th scope="row" class="col-1">{{ race.id }}</th>
+            <td class="col-5">
+                {{ race.name }}
+            </td>
+            <td class="col-5">{{ race.description }}</td>
+            <td class="col-1"><a href="{% url 'race_detail' race.id %}" class="btn btn-info rounded-0 text-light">
+                      Szczegóły</a></td>
+        </tr>
+        {% empty%}
+            <p>Brak odpowiedniej rasy w bazie</p>
+        {% endfor %}
+    </tbody>
 
 </table>
 </form>

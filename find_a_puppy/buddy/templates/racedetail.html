@@ -3,7 +3,8 @@
 {% block content %}
 <div class="row border-bottom border-3">
     <div class="col"><h2 class="text-uppercase" >Szczegółowy opis:</h2></div>
-    <div class="col d-flex justify-content-end mb-2"><a href="{% url 'rasy' %}" class="btn btn-info rounded-0 text-light">Powrót</a></div>
+    <div class="col-5 d-flex justify-content-end mb-2"><a href="{% url 'dobierz_szczeniaka' %}" class="btn btn-info rounded-0 text-light">Powrót do dopasowania</a></div>
+    <div class="col-3 d-flex justify-content-end mb-2"><a href="{% url 'rasy' %}" class="btn btn-info rounded-0 text-light">Powrót do Listy ras</a></div>
 </div>
 <br>
     {% for value in race_details %}
