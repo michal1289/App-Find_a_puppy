@@ -81,3 +81,7 @@ class Race(models.Model):
         return f'{self.name}, {self.description}, {self.size}, {self.care}, {self.activity}, {self.children},\
                 {self.character}, {self.live_in_city}, {self.salary}, {self.training}. {self.guard}'
 
+
+class Contact(models.Model):
+    title = models.CharField(max_length=128, verbose_name="Tytuł")
+    message = models.TextField(verbose_name="Treść")
